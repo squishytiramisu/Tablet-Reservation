@@ -1,0 +1,115 @@
+body{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: tahoma, sans-serif;
+    color: #fff;
+    }
+    
+    .wrapper{
+        max-width: 960px;
+        margin: 0 auto;
+        /*display:grid;*/
+        /* place-items:center; */
+    }
+    
+    div.wrapper h1{
+        text-align: center;
+        margin: 50px auto;
+        font-size: 2.4em
+    }
+    
+    
+    
+    .gomb{
+        background: #48cd91;
+        color: whitesmoke;
+        cursor: pointer;
+        text-align: center;
+        margin: 12px;
+        padding:10px 20px;
+        font-size:1.1em;
+
+    }
+    @keyframes szinvaltas {
+        from {background-color: #48cd91;}
+        to {background-color: #85ffc8;
+    }
+  }
+    .gomb:hover{
+        animation-name: szinvaltas;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+    
+    .napok{
+        margin: 1px;
+        grid-gap: 10px;
+    }
+    
+    .nap{
+        padding: 5px;
+        margin:12px;
+        border: 3px solid #48cd91;
+        text-align:center;
+        /*width:60%*/
+    }
+    
+    h2{
+        margin:15px;
+        text-align:center
+    }
+
+    .orak{
+            list-style-position: inside;
+
+    }
+    .parent{
+        display:grid;
+        place-items:center;
+    }
+
+    ul ol ul {
+list-style-type: disc;
+width:fit-content;
+display:inline-block
+}
+
+
+form {
+   /* padding:20px;
+    margin: 10px;*/
+}
+
+form input,label{
+    display:block;
+    margin: 10px;
+}
+
+form input{
+    width:200px;
+    border-radius: 25px;
+}
+
+#lefog{
+    cursor:pointer;
+    color:beige;
+    background:#48cd91;
+}
+
+    #lefog:hover{
+        animation-name: szinvaltas;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction:alternate;
+    }
+
+.fos{
+    background:red;
+    width:25px;
+    display:inline-block
+}
+.removeform{
+    display:inline-block;
+}

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="hun">
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+<title>Tablet foglalás</title>
+</head>
+<body>
+<div class="wrapper">
+<h1>Tablet foglalás</h1>
+<ul class="napok">
+    {% for nap in god %}
+    <div class="nap">
+        <h2 class="napnev">{{ nap.napnev }}</h2>
+        <div class="parent">
+        <ol class="orak">
+            {% for ora in nap.orak %}
+                <li class="foglaltsag">Óra foglaltság: ({{elerheto}}/{{ ora.osszesen }})</li>
+                <ul class="posts">
+                    {% for post in ora.posts %}
+                        <li class="post"> {{post.tanar}} - {{post.db}} db
+                        <form action="{% url 'index' %}" method="post" class="removeform">
+                            {% csrf_token %}
+                            <input type="hidden" name="tanarnev" value="{{post.tanar}}">
+                            <input type="hidden" name="postdb" value="{{post.db}}">
+                            <input type="hidden" name="id" value="{{post.id}}">
+                            <input type="submit" class="fos" value="X" id="torles">
+                        </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            
+            {% endfor %}
+            
+        </ol>
+        </div>
+        <input class="gomb" type="button" onclick="location.href='{% url 'hozzadas' nap.napszam %}';" value="+" />
+    </div>
+        {% endfor %}
+    
+</div>
+
+
+</body>
+</html>

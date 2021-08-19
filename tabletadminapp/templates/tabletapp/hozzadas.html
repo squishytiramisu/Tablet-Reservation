@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="hun">
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+    <title>Hozzádas</title>
+</head>
+<body>
+    <h1 class='foglalas'>Foglalás - {{napneve}}</h1>
+    <div class="forma">
+        
+    <form action="{% url 'hozzadas' napszam %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Lefoglalás" id="lefog">
+    </form>
+    </div>
+    <a class="vissza" href="{% url 'index' %}" style="
+    color: white;
+    /* text-align: center; */
+    position: absolute;
+    padding: 0px 0px 0px 78px;">Vissza</a>
+</body>
+</html>

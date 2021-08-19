@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="hun">
+<head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+    <title>Bejelentkezés</title>
+<title>Tablet foglalás</title>
+</head>
+<body>
+    <h1>Azonosítás</h1>
+    {% if message %}
+    <div class="hiba">{{message}}</div>
+    {% endif %}
+    <form action="{% url 'bejelentkezes' %}" method="post">
+        {% csrf_token %}
+        <input type="password" name="password" placeholder="Tanári kulcs">
+        <input type="submit" value="Ok">
+    </form>
+</body>
+</html>
