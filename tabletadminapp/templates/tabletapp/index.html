@@ -1,4 +1,5 @@
 {% load static %}
+{% load mathfilters %}
 <!DOCTYPE html>
 <html lang="hun">
 <head>
@@ -16,7 +17,7 @@
         <div class="parent">
         <ol class="orak">
             {% for ora in nap.orak %}
-                <li class="foglaltsag">Óra foglaltság: ({{elerheto}}/{{ ora.osszesen }})</li>
+                <li class="foglaltsag">Óra elérhető még: ({{elerheto}} / {{ elerheto|sub:ora.osszesen }})</li>
                 <ul class="posts">
                     {% for post in ora.posts %}
                         <li class="post"> {{post.tanar}} - {{post.db}} db
