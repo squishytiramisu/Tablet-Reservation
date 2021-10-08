@@ -13,8 +13,8 @@ from django.contrib.auth import authenticate,login
 
 class UjForm(forms.Form):
     nev=forms.CharField(label='Tanár neve:')
-    ora=forms.IntegerField(label='Hanyadik óra: ',min_value=1,max_value=6)
-    db=forms.IntegerField(label='Darab',min_value=1,max_value=20)
+    ora=forms.IntegerField(label='Hanyadik óra: ',min_value=1,max_value=8)
+    db=forms.IntegerField(label='Darab',min_value=1,max_value=45)
 
 
 def hetNapja(nap):
@@ -75,6 +75,7 @@ def hozzadas(request,napszam):
     for egyesnap in Nap.objects.all():
         if egyesnap.nap==napszam:
             adottNap=egyesnap
+            break
     if request.method == "POST":
         form =UjForm(request.POST)
         if form.is_valid():
