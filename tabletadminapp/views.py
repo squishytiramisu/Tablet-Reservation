@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate,login
 
 class UjForm(forms.Form):
     nev=forms.CharField(label='Tanár neve:')
-    ora=forms.IntegerField(label='Hanyadik óra: ',min_value=1,max_value=8)
+    ora=forms.IntegerField(label='Hanyadik óra: ',min_value=1,max_value=10)
     db=forms.IntegerField(label='Darab',min_value=1,max_value=45)
 
 
@@ -61,8 +61,11 @@ def index(request):
             azorak.append({"osszesen":0,"posts":[]})
         for foglalas in Foglalas.objects.all():
             if foglalas.nap.nap==nap.nap:
-                azorak[foglalas.oraszam-1]["osszesen"]+=foglalas.mennyiseg
-                azorak[foglalas.oraszam-1]["posts"].append({"tanar":foglalas.tanar,"db":foglalas.mennyiseg,"id":foglalas.id})
+                try:
+                    azorak[foglalas.oraszam-1]["osszesen"]+=foglalas.mennyiseg
+                    azorak[foglalas.oraszam-1]["posts"].append({"tanar":foglalas.tanar,"db":foglalas.mennyiseg,"id":foglalas.id})
+                except:
+                    pass
         adatok.append({"napnev":napnev,"orak":azorak,"napszam":nap.nap})
 
     #god==godObject
